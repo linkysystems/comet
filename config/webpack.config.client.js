@@ -3,12 +3,13 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/client/index.js'),
+  target: 'node',
   output: {
     path: path.resolve(__dirname, '../dist/client'),
     filename: 'index.js',
     library: 'CometClient',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
+    libraryTarget: 'commonjs2',
+    // umdNamedDefine: true,
   },
   devtool: 'source-map',
   module: {
@@ -33,7 +34,7 @@ module.exports = {
           keep_classnames: true,
           keep_fnames: true,
         },
-        sourceMap: true,
+        sourceMap: false,
       }),
     ],
   },
